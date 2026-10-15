@@ -1294,6 +1294,51 @@ main > .claret-sec:last-child,.claret-sec{background:var(--verm)!important; colo
 .intro-lede{font-family:var(--display)!important; font-weight:800!important; text-transform:uppercase; letter-spacing:-.015em!important; font-size:clamp(1.1rem,1.75vw,1.6rem)!important; line-height:1.15!important; max-width:none!important; margin:0!important; color:var(--peri)!important; text-align:left}
 .intro-lede em{font-style:normal; color:var(--verm)}
 @media (max-width:760px){ .intro-note .wrap{grid-template-columns:1fr; gap:.8rem} }
+
+/* About page: option A, the manifesto */
+.a-hero{padding-block:clamp(.5rem,1.5vw,1rem) clamp(3rem,6vw,5rem)}
+.a-hero .corners{padding-bottom:clamp(2rem,4vw,3.5rem)}
+.a-intro{font:800 clamp(1.2rem,2vw,1.8rem)/1 var(--display); text-transform:uppercase; letter-spacing:-.02em; margin:0 0 1rem; color:var(--peri)}
+.a-words{list-style:none; margin:0; padding:0; border-top:1px solid var(--rule)}
+.a-words a{display:grid; grid-template-columns:4rem minmax(0,1fr) minmax(0,22rem); gap:1.5rem; align-items:center; padding-block:.35rem; border-bottom:1px solid var(--rule)}
+.a-words .n{font:800 1.2rem/1 var(--display); color:var(--verm)}
+.a-words .w{font:800 clamp(3rem,8.4vw,8.4rem)/.9 var(--display); text-transform:uppercase; letter-spacing:-.045em; color:var(--peri); transition:color .2s}
+.a-words .d{font-size:.92rem; line-height:1.45; color:var(--peri-text)}
+.a-words .d b{display:block; font:700 .95rem/1.2 var(--display); text-transform:uppercase; color:var(--peri); margin-bottom:.25rem}
+.a-words a:hover .w{color:var(--verm)}
+.a-stand{display:grid; grid-template-columns:minmax(0,4fr) minmax(0,8fr); gap:clamp(1.5rem,4vw,4rem); margin-top:clamp(2rem,4vw,3rem)}
+.a-body{color:var(--peri-text); margin:0 0 1rem; max-width:36rem}
+.a-stand .a-body{font-size:clamp(1.05rem,1.4vw,1.25rem); max-width:40rem; margin:0}
+.a-letter{background:var(--plum-deep); padding-block:clamp(4rem,8vw,7rem)}
+.a-letter .wrap{display:grid; grid-template-columns:minmax(0,5fr) minmax(0,7fr); gap:clamp(2rem,5vw,5rem); align-items:center}
+.a-ph{position:relative; aspect-ratio:4/5; max-width:100%}
+.a-ph .plate{position:absolute; inset:0; height:100%}
+.a-ph::after{content:""; position:absolute; inset:0; border:2px solid var(--verm); pointer-events:none; z-index:2}
+.a-letter h2{font:800 clamp(2.4rem,4.6vw,4.8rem)/.88 var(--display); text-transform:uppercase; letter-spacing:-.03em; color:var(--peri); margin:1rem 0 1.6rem}
+.a-sign{margin-top:1.6rem; display:grid; gap:.3rem}
+.a-sign b{font:800 1.2rem/1 var(--display); text-transform:uppercase; color:var(--peri)}
+.a-sign span,.a-sign a{font-size:.85rem; color:var(--peri-text)}
+.a-sign a:hover{color:var(--verm)}
+.a-promise{background:var(--peri); color:var(--plum); padding-block:clamp(3.5rem,7vw,6rem)}
+.a-promise .lbl{color:var(--plum)}
+.a-promise h2{font:800 clamp(2.6rem,6vw,6rem)/.88 var(--display); text-transform:uppercase; letter-spacing:-.03em; color:var(--plum); margin:1rem 0 clamp(2rem,4vw,3rem); padding-bottom:1.2rem; border-bottom:2px solid var(--plum)}
+.a-three{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(1.5rem,3vw,3rem)}
+.a-three .num{font:800 2.4rem/1 var(--display); letter-spacing:-.04em; color:var(--plum)}
+.a-three h3{font:800 clamp(1.2rem,1.8vw,1.6rem)/1 var(--display); text-transform:uppercase; letter-spacing:-.02em; color:var(--plum); margin:.8rem 0 .7rem}
+.a-three p{margin:0}
+.a-go{padding-block:clamp(3.5rem,7vw,6rem)}
+.a-row{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,26rem) 3rem; gap:2rem; align-items:center; padding-block:1.4rem; border-bottom:1px solid var(--rule); transition:color .2s}
+.a-row:first-child{border-top:1px solid var(--rule)}
+.a-row .t{font:800 clamp(1.8rem,3.6vw,3.4rem)/.9 var(--display); text-transform:uppercase; letter-spacing:-.03em}
+.a-row p{margin:0; color:var(--peri-text)}
+.a-row .arr{font:800 2rem/1 var(--display); color:var(--verm); text-align:right}
+.a-row:hover{color:var(--verm)}
+@media (max-width:900px){
+  .a-words a{grid-template-columns:2.6rem minmax(0,1fr)} .a-words .d{display:none}
+  .a-stand,.a-letter .wrap,.a-three{grid-template-columns:1fr}
+  .a-row{grid-template-columns:minmax(0,1fr) 2rem} .a-row p{display:none}
+}
+.a-hero .lbl,.a-letter .lbl,.a-promise .lbl{letter-spacing:.18em; text-transform:uppercase}
 </style>
 </head>
 <body>
@@ -2078,62 +2123,45 @@ function homegrown(){
   </div></section>`;
 }
 function about(){
-  const lines = [["style","style"],["beauty","beauty"],["wellness","wellness"],["culture","culture"],["travel","travel"],["work","work"]];
   const pillars = Object.entries(WORLDS);
   return `
-  <header class="ab2-cover">
-    <div class="ab2-cover-txt">
-      <div class="ab2-top"><span class="kicker">About WONDER</span><span class="kicker">Online only \u00b7 Always evolving</span></div>
-      <h1 class="ab-title">Style, beauty, wellness,<br><em>culture, travel and work.</em></h1>
-      <p class="ab-stand">A digital magazine for the wondering kind, for whom wanting it all has always been an art. Online only and always evolving, it is for readers who want to know what is worth their attention, and why.</p>
-    </div>
-    <div class="ab2-cover-img">${plate({src:IMG.arch, pos:"50% 40%"}, "", "A woman in a flowing ivory gown beneath a sculpted stone arch", "about-cover")}</div>
-  </header>
-
-  <section class="ab-manifesto"><div class="wrap ab-grid">
-    <div class="ab-side"><p class="kicker">Our philosophy</p><p class="ab-side-note">Where she wonders, we explore.</p></div>
-    <div class="ab-main">
-      <p class="ab-line ab-first">WONDER begins with curiosity.</p>
-      ${lines.map(([w,r]) => `<p class="ab-line">We explore <a href="#/${r}">${w}</a>.</p>`).join("")}
-    </div>
+  <section class="a-hero"><div class="wrap">
+    <div class="corners"><p class="lbl">About WONDER</p><p class="lbl">Online only \u00b7 Always evolving</p></div>
+    <h1 class="a-intro">WONDER begins with curiosity. We explore</h1>
+    <ul class="a-words">${pillars.map(([k, w], i) => `<li><a href="#/${k}"><span class="n">0${i + 1}</span><span class="w">${w.name}</span><span class="d"><b>${w.head}</b>${w.intro}</span></a></li>`).join("")}</ul>
+    <div class="a-stand"><p class="lbl">Where she wonders, we explore.</p><p class="a-body">A digital magazine for the wondering kind, for whom wanting it all has always been an art. Online only and always evolving, it is for readers who want to know what is worth their attention, and why.</p></div>
   </div></section>
 
-  <section class="ab2-strip" aria-hidden="true"><div class="wrap ab2-strip-grid">
-    ${[[IMG.vessel,"50% 50%"],[IMG.kaftan,"50% 40%"],[IMG.water,"50% 60%"]].map(([src,pos],i) => `<div class="ab2-strip-img">${plate({src, pos}, "", "", "about-strip-" + i)}</div>`).join("")}
-  </div></section>
-
-  <section class="ab2-letter"><div class="wrap ab2-letter-grid">
-    <div class="ab2-letter-img">${plate({src:IMG.drape, pos:"50% 35%"}, "", "A woman in a draped ivory dress seated on a wooden bench in a pale stone hall", "about-letter")}</div>
-    <div class="ab2-letter-txt">
-      <p class="kicker">From the Editor-in-Chief</p>
-      <h2 class="h-xl">Why WONDER,<br><em>and why now</em></h2>
-      <div class="ab-prose">
-        <p>WONDER began with a simple observation: the women we know are curious about everything, from what to wear and where to go to how to build a life and a career on their own terms. Too few magazines meet that curiosity with the depth and style it deserves.</p>
-        <p>So we made WONDER online only, for the way you read today: style with a discerning eye, beauty with the science checked, travel as if we were sending a friend, and people with honesty.</p>
-        <p>Every story here is chosen by our editors. We check what we publish, we label partnerships clearly, and nothing on the Wonder List is ever paid for. We hope WONDER becomes a companion: something you return to, share and argue with.</p>
-      </div>
-      <div class="ab2-sign"><p class="ab-sign">With curiosity,<br><span>The Editor-in-Chief</span></p>
-      <p class="byline"><a class="inline-link" href="mailto:${EDITOR_EMAIL}">${EDITOR_EMAIL}</a></p></div>
+  <section class="a-letter"><div class="wrap">
+    <div class="a-ph">${plate({src:IMG.drape, pos:"50% 35%"}, "", "A woman in a draped ivory dress seated on a wooden bench in a pale stone hall", "about-letter")}</div>
+    <div>
+      <p class="lbl">From the Editor-in-Chief</p>
+      <h2>Why WONDER, <em>and why now</em></h2>
+      <p class="a-body">WONDER began with a simple observation: the women we know are curious about everything, from what to wear and where to go to how to build a life and a career on their own terms. Too few magazines meet that curiosity with the depth and style it deserves.</p>
+      <p class="a-body">So we made WONDER online only, for the way you read today: style with a discerning eye, beauty with the science checked, travel as if we were sending a friend, and people with honesty.</p>
+      <p class="a-body">Every story here is chosen by our editors. We check what we publish, we label partnerships clearly, and nothing on the Wonder List is ever paid for. We hope WONDER becomes a companion: something you return to, share and argue with.</p>
+      <div class="a-sign"><b>With curiosity,</b><span>The Editor-in-Chief</span><a href="mailto:${EDITOR_EMAIL}">${EDITOR_EMAIL}</a></div>
     </div>
   </div></section>
 
-  <section class="ab2-worlds"><div class="wrap">
-    <div class="ab2-head"><p class="kicker">What we cover</p><h2 class="h-xl">Five worlds <em>of Wonder</em></h2></div>
-    <ol class="ab2-pillars">${pillars.map(([k,w],i) => `<li><a class="story-link" href="#/${k}"><span class="ab2-p-num">0${i+1}</span><span class="ab-pname">${w.name}</span><span class="ab-phead t">${w.head}</span><span class="ab-pintro">${w.intro}</span></a></li>`).join("")}</ol>
+  <section class="a-promise"><div class="wrap">
+    <p class="lbl">Our promise</p>
+    <h2>How we work</h2>
+    <div class="a-three">
+      <div><span class="num">01</span><h3>Chosen, never bought</h3><p>Every story, place and product is chosen by the editors. Partnerships are always labelled, and the Wonder List is never paid for.</p></div>
+      <div><span class="num">02</span><h3>Checked before published</h3><p>We verify names, places and claims, and we say so when the evidence is limited. Draft stories are marked until they have been checked.</p></div>
+      <div><span class="num">03</span><h3>Open to the world</h3><p>Our perspective is curious and international, drawn to energy, diversity and ambition wherever we find them. Online only, so our stories reach you wherever you are.</p></div>
+    </div>
   </div></section>
 
-  <section class="ab2-promise"><div class="wrap">
-    <div class="ab2-head"><p class="kicker">Our promise</p><h2 class="h-xl">How we <em>work</em></h2></div>
-    <div class="ab2-promise-grid"><div class="ab2-promise-item"><span class="ab2-pn">01</span><h3 class="h-m">Chosen, never bought</h3><p>Every story, place and product is chosen by the editors. Partnerships are always labelled, and the Wonder List is never paid for.</p></div><div class="ab2-promise-item"><span class="ab2-pn">02</span><h3 class="h-m">Checked before published</h3><p>We verify names, places and claims, and we say so when the evidence is limited. Draft stories are marked until they have been checked.</p></div><div class="ab2-promise-item"><span class="ab2-pn">03</span><h3 class="h-m">Open to the world</h3><p>Our perspective is curious and international, drawn to energy, diversity and ambition wherever we find them. Online only, so our stories reach you wherever you are, in words, sound and pictures.</p></div></div>
-  </div></section>
-
-  <section class="ab2-cta"><div class="wrap">
-    <div class="ab2-cta-grid"><a class="ab2-card story-link" href="#/collaborate"><div class="ab2-card-img">${plate({src:IMG.desk, pos:"50% 35%"}, "", "A woman in an ivory suit seated at a desk", "about-card-0")}</div><div class="ab2-card-txt"><p class="kicker">Collaborate</p><h3 class="h-m t">Work with WONDER</h3><p>Brands, partners and contributors: share a short brief about the idea you have in mind.</p><span class="read">Share a brief \u2192</span></div></a><a class="ab2-card story-link" href="#/homegrown"><div class="ab2-card-img">${plate({src:IMG.henna, pos:"50% 50%"}, "", "A hand with a gold ring resting on green velvet", "about-card-1")}</div><div class="ab2-card-txt"><p class="kicker">Homegrown</p><h3 class="h-m t">We support homegrown</h3><p>Talent, makers and businesses born in the UAE. Share our story, or tell us yours.</p><span class="read">Write to the Editor-in-Chief \u2192</span></div></a><a class="ab2-card story-link" href="https://www.instagram.com/wdr_magazine/" target="_blank" rel="noopener"><div class="ab2-card-img">${plate({src:IMG.laugh, pos:"50% 30%"}, "", "A woman in black seated on a wooden chair, laughing", "about-card-2")}</div><div class="ab2-card-txt"><p class="kicker">Follow</p><h3 class="h-m t">Every day on Instagram</h3><p>Stories, places and the women we are wondering about, between issues.</p><span class="read">@wdr_magazine \u2192</span></div></a></div>
+  <section class="a-go"><div class="wrap">
+    <a class="a-row" href="#/collaborate"><span class="t">Work with WONDER</span><p>Brands, partners and contributors: share a short brief about the idea you have in mind.</p><span class="arr" aria-hidden="true">\u2192</span></a>
+    <a class="a-row" href="#/homegrown"><span class="t">We support homegrown</span><p>Talent, makers and businesses born in the UAE. Share our story, or tell us yours.</p><span class="arr" aria-hidden="true">\u2192</span></a>
+    <a class="a-row" href="https://www.instagram.com/wdr_magazine/" target="_blank" rel="noopener"><span class="t">@wdr_magazine</span><p>Stories, places and the women we are wondering about, between issues.</p><span class="arr" aria-hidden="true">\u2192</span></a>
   </div></section>
 
   <section class="sec claret-sec"><div class="wrap">${letterBlock("about")}</div></section>`;
 }
-
 function searchPage(q=""){
   return `<section class="page-head"><div class="wrap">
     <label class="kicker" for="q" style="display:block;margin-bottom:1.5rem">Search WONDER</label>
