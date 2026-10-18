@@ -1610,6 +1610,188 @@ main > .claret-sec:last-child,.claret-sec{padding-block:clamp(2.4rem,4vw,3.2rem)
   .pcopy{margin:20px 0 0; font-size:11px; color:var(--pperi3)}
 }
 @media (max-width:760px) and (prefers-reduced-motion:reduce){ .psheet,.pscrim{transition:none} .pmast{animation:none} }
+
+/* running text justified everywhere: each line fills the column */
+.dek,.ce-dek,.feat-dek,.feat-more-dek,.prose p,.hero-copy p,.intro-lede,.page-head .intro p,.ps-p,.offer dd,.ab-prose p,.ab-stand,.a-body,.a-words .d,.a-three p,.series-line,.wl3-note,.wl3-stand,.ed-stand,.letter .note,.legal-page p,.legal-page li,.team p,.ww-role,.draft-note,.ph-dek,.pquote p.big,.a-stand .a-body{
+  text-align:justify!important}
+@media (max-width:760px){ .feature .prose p,.feature .feat-dek,.feature .draft-note,.pquote p.big{text-align-last:center} }
+@media (max-width:760px){ .pcover-tx .ph-dek{max-width:none!important} }
+
+/* ---- 2026-10-18: justified, full-width, never cut words ---- */
+#main p,#main dd,.letter .note,.pquote p.big,.pfoot p{-webkit-hyphens:none!important; hyphens:none!important; overflow-wrap:normal; word-break:normal}
+#main p:not(.kicker):not(.lbl):not(.ph-lbl):not(.byline):not(.meta):not(.ph-meta):not(.who):not(.cap):not(.letter-fine):not(.pfine):not(.form-msg):not(.form-note):not(.tag):not(.wl3-tag),
+#main dd,#main .series-line,#main .a-three p,#main .ab2-card-txt p,#main .ww-feature p,#main .a-row p,#main .team p,#main .legal-page li{
+  text-align:justify!important; max-width:none!important}
+#main .dek,#main .ce-dek,#main .feat-dek,#main .card .dek,#main .page-head .intro p,#main .wl3-stand,#main .ed-stand,#main .wl3-note,#main .a-body,#main .ab-stand,#main .intro-lede,#main .ps-p,#main .ph-dek,.letter .note{max-width:none!important; margin-inline:0}
+#main .intro-lede{text-align:justify!important; text-align-last:center}
+@media (max-width:760px){ .feature .prose p,.feature .feat-dek,.feature .draft-note,.pquote p.big{text-align:justify!important; text-align-last:center} }
+#main .ab-pintro,#main .ww-role,#main .feat-more-dek,#main .a-words .d{display:block; text-align:justify!important; max-width:none!important; -webkit-hyphens:none!important; hyphens:none!important}
+
+/* ================= phone, picture-first (A1) ================= */
+.vmenu{display:none}
+@media (max-width:760px){
+  .v-cover{position:relative; margin-top:58px}
+  .v-cover .pph{aspect-ratio:4/5.2; margin:0 var(--pg); overflow:hidden}
+  .v-cover .pph .plate{animation:vsettle 2.4s cubic-bezier(.2,.7,.1,1) both}
+  @keyframes vsettle{from{transform:scale(1.08)} to{transform:scale(1)}}
+  .v-cover .pmast{position:absolute; z-index:2; top:-44px; left:var(--pg); right:var(--pg); width:auto!important; color:var(--peri); animation:pwrite 1.3s .15s cubic-bezier(.65,0,.35,1) both, vbreathe 6s 2s ease-in-out infinite}
+  @keyframes vbreathe{50%{opacity:.82}}
+  .v-cap{display:flex; justify-content:space-between; align-items:flex-end; gap:14px; padding:16px var(--pg) 0}
+  .v-ttl{font:700 19px/1.15 var(--display); letter-spacing:-.015em; color:var(--peri); margin:8px 0 0}
+  .v-cap .v-ttl{font-size:22px}
+  .v-go{flex:none; width:46px; height:46px; border-radius:50%; background:var(--peri); color:var(--pdeep); display:grid; place-items:center; font:600 20px/1 var(--sans)}
+  .v-h2{font:800 26px/.95 var(--display); text-transform:uppercase; letter-spacing:-.03em; color:var(--peri); margin:8px 0 0}
+  .v-h2 em{font-style:normal; color:var(--verm)}
+  .v-sec{padding:34px 0}
+  .v-head{display:flex; justify-content:space-between; align-items:flex-end; padding:0 var(--pg); margin-bottom:16px}
+  .v-more{font:600 11px/1 var(--sans); letter-spacing:.16em; text-transform:uppercase; color:var(--peri); padding-bottom:5px; border-bottom:2px solid var(--peri)}
+  .v-row{display:flex; gap:10px; overflow-x:auto; scroll-snap-type:x mandatory; padding:0 var(--pg); scroll-padding:var(--pg); scrollbar-width:none}
+  .v-row::-webkit-scrollbar{display:none}
+  .v-row > *{flex:none; scroll-snap-align:start}
+  .v-ad{margin:30px var(--pg) 0; border:1px dashed rgba(158,178,214,.35); display:grid; place-items:center; align-content:center; gap:6px; text-align:center!important; color:var(--pperi3); position:relative}
+  .v-ad::before{content:"Advertisement"; position:absolute; top:-9px; left:50%; transform:translateX(-50%); background:var(--plum); padding:0 8px; font:600 9px/18px var(--sans); letter-spacing:.18em; text-transform:uppercase; color:var(--pperi3)}
+  .v-ad b{font:700 13px/1 var(--display); color:var(--pperi2)}
+  .v-ad span{font:500 11px/1 var(--sans)}
+  .v-ad.banner{aspect-ratio:320/100}
+  .v-ad.mpu{aspect-ratio:300/250; margin-top:0}
+  .v-ad.sponsor{aspect-ratio:auto; padding:18px; grid-template-columns:72px 1fr; text-align:left!important; justify-items:start; gap:4px 14px}
+  .v-ad.sponsor .logo{grid-row:1/3; width:72px; height:72px; border:1px solid var(--pline); display:grid; place-items:center; font:600 9px/1 var(--sans); letter-spacing:.14em; text-transform:uppercase}
+  .v-card{width:66%; max-width:270px}
+  .v-card .pph{aspect-ratio:3/4}
+  .v-card .ph-lbl{margin-top:12px}
+  .v-bleed .pph{aspect-ratio:4/5}
+  .v-bleed .v-capb{padding:14px var(--pg) 0}
+  .v-world{width:40%}
+  .v-world .pph{aspect-ratio:3/4.4}
+  .v-world b{display:block; margin-top:10px; font:800 15px/1 var(--display); text-transform:uppercase; color:var(--peri)}
+  .v-world i{display:block; margin-top:5px; font:normal 500 11px/1 var(--sans); color:var(--pperi3)}
+  .v-pick{width:44%}
+  .v-pick .pph{aspect-ratio:1; display:grid; place-items:center}
+  .v-pick .pph .big{font:800 54px/1 var(--display); color:var(--verm); letter-spacing:-.04em}
+  .v-pick .n{display:block; margin-top:10px; font:800 13px/1 var(--display); color:var(--verm)}
+  .v-pick .v-ttl{font-size:14px; margin-top:4px}
+  .v-letter{margin:0 var(--pg); background:var(--verm); color:var(--pdeep); padding:20px 18px; text-align:center}
+  .v-letter .ph-lbl{color:var(--pdeep)}
+  .v-letter .v-h2{color:var(--pdeep); font-size:20px; margin:8px 0 14px}
+  .v-letter .pfield{background:rgba(44,10,28,.12)}
+  .v-letter .pfield input{color:var(--pdeep)}
+  .v-letter .pfield input::placeholder{color:var(--pdeep)}
+  .v-letter .pgo{background:var(--pdeep); color:var(--peri)}
+  .v-letter .form-msg{color:var(--pdeep)!important; text-align:center!important}
+
+  /* full-screen worlds menu */
+  .vmenu{display:flex; position:fixed; inset:0; z-index:85; background:rgba(44,10,28,.97); flex-direction:column; justify-content:center; padding:70px var(--pg) 90px; opacity:0; visibility:hidden; transition:opacity .35s, visibility 0s .35s}
+  .vmenu.on{opacity:1; visibility:visible; transition:opacity .35s}
+  .vmenu .bg{position:absolute; inset:0; z-index:0}
+  .vmenu .bg .pph{position:absolute; inset:0; opacity:0; transition:opacity .5s}
+  .vmenu .bg .pph.on{opacity:.28}
+  .vmenu a.vw{position:relative; z-index:1; display:flex; align-items:baseline; gap:12px; font:800 44px/1.08 var(--display); text-transform:uppercase; letter-spacing:-.035em; color:var(--peri); opacity:0; transform:translateY(16px)}
+  .vmenu.on a.vw{animation:vpop .45s cubic-bezier(.2,.8,.2,1) forwards}
+  .vmenu.on a.vw:nth-of-type(2){animation-delay:.05s} .vmenu.on a.vw:nth-of-type(3){animation-delay:.1s} .vmenu.on a.vw:nth-of-type(4){animation-delay:.15s} .vmenu.on a.vw:nth-of-type(5){animation-delay:.2s} .vmenu.on a.vw:nth-of-type(6){animation-delay:.25s}
+  @keyframes vpop{to{opacity:1; transform:none}}
+  .vmenu a.vw small{font:700 12px/1 var(--display); color:var(--verm); letter-spacing:0}
+  .vmenu a.vw.hot,.vmenu a.vw[aria-current="page"]{color:#fff}
+  .vmenu .x{position:absolute; top:calc(env(safe-area-inset-top,0px) + 6px); left:8px; z-index:2}
+}
+@media (max-width:760px) and (prefers-reduced-motion:reduce){ .v-cover .pmast,.v-cover .pph .plate,.vmenu.on a.vw{animation:none; opacity:1; transform:none} .vmenu{transition:none} }
+
+/* About "We explore": list + changing image (option E) */
+.ax{display:grid; grid-template-columns:1fr 1fr; gap:clamp(2rem,4vw,3.5rem); align-items:stretch; min-height:560px}
+.ax-list{list-style:none; margin:0; padding:0; display:grid; align-content:center}
+.ax-list a{display:grid; grid-template-columns:3.2rem 1fr; align-items:center; padding:1rem 0; border-bottom:1px solid var(--rule)}
+.ax-list li:first-child a{border-top:1px solid var(--rule)}
+.ax-list .n{font:800 13px/1 var(--display); color:var(--verm)}
+.ax-list .w{font:800 clamp(2rem,3.4vw,3.3rem)/1 var(--display); text-transform:uppercase; letter-spacing:-.03em; color:rgba(158,178,214,.45); transition:color .3s, transform .3s}
+.ax-list a.on .w{color:var(--peri); transform:translateX(10px)}
+.ax-list .d{grid-column:2; font:500 13px/1.4 var(--sans); color:var(--peri-text); max-height:0; overflow:hidden; opacity:0; transition:.35s; text-align:left!important}
+.ax-list a.on .d{max-height:30px; opacity:1; margin-top:6px}
+.ax-stage{position:relative; overflow:hidden; min-height:420px}
+.ax-stage .plate{position:absolute!important; inset:0; height:100%; opacity:0; transform:scale(1.05); transition:opacity .6s, transform 1.2s}
+.ax-stage .plate.on{opacity:1; transform:none}
+@media (max-width:760px){ .ax{grid-template-columns:1fr; min-height:0} .ax-stage{order:-1; aspect-ratio:4/5; min-height:0} .ax-list .w{font-size:28px} }
+@media (prefers-reduced-motion:reduce){ .ax-stage .plate,.ax-list .w{transition:none} }
+
+/* phone: Series in the menu; Shop as one large product per row (option A), no filters, no tags */
+@media (max-width:760px){
+  .vmenu a.vseries{margin-top:14px; padding-top:14px; border-top:1px solid var(--pline); color:var(--verm)}
+  .vmenu.on a.vw:nth-of-type(7){animation-delay:.32s}
+  .shop-wrap .filters{display:none!important}
+  .shop-wrap .shop-note{font-size:13px!important; color:#8FA2C6!important}
+  .shop-grid{grid-template-columns:1fr!important; gap:30px!important; margin-top:8px!important}
+  .prod{display:grid!important; grid-template-columns:1fr auto; column-gap:16px; row-gap:6px; align-items:end}
+  .prod .pimg{grid-column:1/-1; aspect-ratio:4/5!important; margin-bottom:10px; border:0!important}
+  .prod .kicker,.prod .from{display:none!important}
+  .prod .brand{grid-column:1; font:600 11px/1 var(--sans)!important; letter-spacing:.16em; color:#8FA2C6!important}
+  .prod b{grid-column:1; font:700 20px/1.15 var(--display)!important; text-transform:none!important; letter-spacing:-.015em!important; color:var(--peri)!important}
+  .prod .price{grid-column:1; font-size:14px!important}
+  .prod .buy{grid-column:2; grid-row:2/5; align-self:end; justify-self:end; height:46px; display:inline-flex!important; align-items:center; padding:0 24px!important; border-radius:0!important; background:var(--peri)!important; color:var(--pdeep)!important; border:0!important; font:700 12px/1 var(--sans)!important; letter-spacing:.16em; opacity:1!important; white-space:nowrap}
+  .prod span.buy{background:transparent!important; color:#8FA2C6!important; border:1px dashed rgba(158,178,214,.4)!important; padding:0 14px!important; font-size:10px!important}
+}
+
+/* ================= welcome sign-up pop-up ================= */
+.wpop{position:fixed; inset:0; z-index:200; display:grid; place-items:center; padding:20px; background:rgba(20,6,13,0); visibility:hidden; transition:background .35s, visibility 0s .35s}
+.wpop.on{background:rgba(20,6,13,.62); visibility:visible; transition:background .35s}
+.wcard{position:relative; width:min(820px,100%); display:grid; grid-template-columns:minmax(0,5fr) minmax(0,6fr); background:var(--plum); color:var(--peri); box-shadow:0 40px 90px -30px rgba(0,0,0,.8); opacity:0; transform:translateY(18px) scale(.98); transition:opacity .4s, transform .5s cubic-bezier(.2,.8,.2,1)}
+.wpop.on .wcard{opacity:1; transform:none}
+.wimg{position:relative; min-height:440px; overflow:hidden}
+.wimg .plate{position:absolute; inset:0; height:100%}
+.wbody{padding:44px 40px 34px; display:grid; align-content:center; gap:14px; text-align:left}
+.wbody .logo-mark{width:120px; color:var(--peri)}
+.wlbl{font:600 11px/1 var(--sans); letter-spacing:.18em; text-transform:uppercase; color:var(--verm); margin:6px 0 0}
+.wh{font:800 34px/.95 var(--display); text-transform:uppercase; letter-spacing:-.03em; color:var(--peri); margin:0}
+.wh em{font-style:normal; color:var(--verm)}
+.wp{font:400 15px/1.5 var(--sans); color:#C3CFE6; margin:0; text-align:left!important}
+.wform{display:flex; align-items:center; margin-top:6px; background:rgba(158,178,214,.1); border-radius:28px; padding:4px 4px 4px 20px}
+.wform input{flex:1; min-width:0; background:none; border:0; outline:0; font:400 15px var(--sans); color:var(--peri); padding:13px 0}
+.wform input::placeholder{color:var(--peri); opacity:.6}
+.wform button{height:46px; padding:0 22px; border-radius:23px; border:0; background:var(--verm); color:var(--plum); font:700 12px/1 var(--sans); letter-spacing:.14em; text-transform:uppercase; cursor:pointer; white-space:nowrap}
+.wfine{font:500 11px/1.4 var(--sans); color:#8FA2C6; margin:0}
+.wno{justify-self:start; background:none; border:0; padding:4px 0; font:500 12px/1 var(--sans); color:#8FA2C6; text-decoration:underline; cursor:pointer}
+.wx{position:absolute; top:10px; right:10px; z-index:3; width:40px; height:40px; display:grid; place-items:center; border:0; background:rgba(44,10,28,.55); border-radius:50%; color:var(--peri); cursor:pointer}
+.wx svg{width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round}
+.wform .form-msg,.wbody .form-msg{font-size:13px; color:#C3CFE6; margin:0; min-height:0}
+@media (max-width:760px){
+  .wpop{place-items:end stretch; padding:0}
+  .wcard{width:100%; grid-template-columns:1fr; border-radius:22px 22px 0 0; transform:translateY(100%); opacity:1; padding-bottom:env(safe-area-inset-bottom,0px)}
+  .wpop.on .wcard{transform:none}
+  .wimg{min-height:0; aspect-ratio:16/9; border-radius:22px 22px 0 0} .wimg .plate img{object-position:50% 12%!important}
+  .wbody{padding:22px 20px 26px; gap:12px; text-align:center}
+  .wbody .logo-mark{display:none}
+  .wh{font-size:26px}
+  .wp{text-align:center!important; font-size:14px}
+  .wno{justify-self:center}
+  .wform button{width:46px; padding:0; font-size:0}
+  .wform button::before{content:"\2192"; font:600 18px/1 var(--sans)}
+}
+@media (prefers-reduced-motion:reduce){ .wpop,.wcard{transition:none} }
+
+/* pop-up style: option B, type only */
+.wcard{width:min(520px,100%); grid-template-columns:1fr; border-top:6px solid var(--verm)}
+.wimg{display:none!important}
+.wbody{text-align:center; justify-items:center; padding:46px 44px 34px}
+.wbody .logo-mark{width:140px}
+.wp{text-align:center!important}
+.wform{width:100%}
+.wno{justify-self:center}
+@media (max-width:760px){
+  .wpop{place-items:center; padding:18px}
+  .wcard{border-radius:0; transform:translateY(18px) scale(.97); opacity:0}
+  .wpop.on .wcard{transform:none; opacity:1}
+  .wbody{padding:34px 22px 26px}
+  .wbody .logo-mark{display:block; width:110px}
+}
+
+/* The Wonder List page */
+.lp-grid{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:44px 32px; padding:8px 0 clamp(4rem,8vw,6rem)}
+.lp-ph{position:relative; aspect-ratio:4/5; overflow:hidden; background:#45182F; display:grid; place-items:center}
+.lp-ph .plate{position:absolute; inset:0; height:100%}
+.lp-none{font:600 11px/1 var(--sans); letter-spacing:.16em; text-transform:uppercase; color:#8FA2C6}
+.lp-tg{display:flex; justify-content:space-between; align-items:baseline; margin-top:14px}
+.lp-tg b{font:800 18px/1 var(--display); color:var(--verm)} .lp-tg i{font:italic 400 13px/1 var(--sans); color:var(--verm)}
+.lp-it h3{font:800 21px/1.12 var(--display); letter-spacing:-.015em; color:var(--peri); margin:8px 0}
+.lp-it p{margin:0; color:#C3CFE6; font-size:14px; line-height:1.55; text-align:justify}
+@media (max-width:900px){ .lp-grid{grid-template-columns:1fr 1fr; gap:30px 14px} .lp-it h3{font-size:17px} }
+@media (max-width:480px){ .lp-grid{grid-template-columns:1fr} .lp-it h3{font-size:20px} }
 </style>
 </head>
 <body>
@@ -1669,6 +1851,23 @@ main > .claret-sec:last-child,.claret-sec{padding-block:clamp(2.4rem,4vw,3.2rem)
   <div class="modal-card">
     <div id="modal-plate"></div>
     <div class="inner"><button class="icon-btn modal-close" data-close-letter aria-label="Close"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 5l14 14M19 5 5 19"/></svg></button><div id="modal-form"></div></div>
+  </div>
+</div>
+
+<div class="wpop" id="wpop" role="dialog" aria-modal="true" aria-labelledby="wpop-h" aria-hidden="true">
+  <div class="wcard">
+    <button type="button" class="wx" data-wclose aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    <div class="wimg" id="wimg"></div>
+    <div class="wbody">
+      <span class="logo-mark word" role="img" aria-label="WONDER"></span>
+      <p class="wlbl">The Wonder Letter</p>
+      <h2 class="wh" id="wpop-h">Something worth wondering about, <em>every Sunday.</em></h2>
+      <p class="wp">One letter a week from our editors: the stories, places and finds we keep coming back to.</p>
+      <form class="wform" data-letter="popup" novalidate><label class="sr" for="em-popup">Email address</label><input id="em-popup" type="email" placeholder="Your email address" autocomplete="email" required><button type="submit">Subscribe</button></form>
+      <p class="form-msg" aria-live="polite"></p>
+      <p class="wfine">One email a week. Unsubscribe any time. <a href="#/privacy" data-wclose style="border-bottom:1px solid currentColor">Privacy</a></p>
+      <button type="button" class="wno" data-wclose>No thanks</button>
+    </div>
   </div>
 </div>
 <script>
@@ -2293,13 +2492,13 @@ function home(){
     <div class="wl3">
       <article class="wl3-hero">
         <div class="wl3-img">${plate({src:IMG.beautyPortrait, pos:"30% 35%"}, "", "Close-up portrait of a woman with glowing skin, soft pink blush and silver hoop earrings, in a black roll-neck", "wl-hero")}</div>
-        <div class="wl3-hero-txt"><p class="wl3-tag"><span>01</span> Pick of the month \u00b7 ${pick.what}</p><h3>${nm(pick)}</h3><p class="wl3-note">${pick.note}</p></div>
+        <div class="wl3-hero-txt"><p class="wl3-tag"><span>01</span> Pick of the month \u00b7 ${pick.what}</p><h3><a class="story-link" href="#/list"><span class="t">${pick.name}</span></a></h3><p class="wl3-note">${pick.note}</p></div>
       </article>
       <div class="wl3-rest"><p class="kicker">And eight more</p>
-        <ol>${rest.map((it, i) => `<li><span class="wl3-n">${String(i + 2).padStart(2, "0")}</span><span class="wl3-name">${nm(it)}</span><span class="wl3-what">${it.what.replace(/^An? /, "")}</span></li>`).join("")}</ol>
+        <ol>${rest.map((it, i) => `<li><span class="wl3-n">${String(i + 2).padStart(2, "0")}</span><span class="wl3-name"><a class="story-link" href="#/list"><span class="t">${it.name}</span></a></span><span class="wl3-what">${it.what.replace(/^An? /, "")}</span></li>`).join("")}</ol>
       </div>
     </div>
-    <div class="wl2-foot"><span>The Wonder List \u00b7 October</span><span>Draft list \u00b7 details to verify</span></div>
+    <div class="wl2-foot"><span>The Wonder List \u00b7 October</span><a href="#/list" style="border-bottom:1px solid currentColor">See the full list \u2192</a></div>
   </div></section>
 
   ${instaBlock("Between issues, <em>on Instagram</em>")}
@@ -2493,7 +2692,10 @@ function about(){
   <section class="a-hero"><div class="wrap">
     <div class="corners"><p class="lbl">About WONDER</p><p class="lbl">Online only \u00b7 Always evolving</p></div>
     <h1 class="a-intro">WONDER begins with curiosity. We explore</h1>
-    <ul class="a-words">${pillars.map(([k, w], i) => `<li><a href="#/${k}"><span class="n">0${i + 1}</span><span class="w">${w.name}</span><span class="d"><b>${w.head}</b>${w.intro}</span></a></li>`).join("")}</ul>
+    <div class="ax">
+      <ol class="ax-list">${pillars.map(([k, w], i) => `<li><a href="#/${k}" class="${i ? "" : "on"}" data-ax="${i}"><span class="n">0${i + 1}</span><span class="w">${w.name}</span><span class="d">${w.head}</span></a></li>`).join("")}</ol>
+      <div class="ax-stage">${pillars.map(([k, w], i) => plate({src:IMG[{style:"runway", beauty:"glowPortrait", wellness:"pilates", culture:"henna", travel:"cph", work:"blazer"}[k]]}, i ? "" : "on", w.name, "ax-" + k)).join("")}</div>
+    </div>
     <div class="a-stand"><p class="lbl">Where she wonders, we explore.</p><p class="a-body">A digital magazine for women with curious minds and individual style. Discover thoughtful stories on beauty, travel, people and living on your own terms. Online only and always evolving, it is for readers who want to know what is worth their attention, and why.</p></div>
   </div></section>
 
@@ -2581,6 +2783,16 @@ function article(id){
 }
 function notFound(){ return `<section class="page-head"><div class="wrap"><h1 class="h-xxl">This page wandered off.</h1><p class="dek">The link may be old. <a class="read" href="#/">Return to the issue →</a></p></div></section>`; }
 
+
+/* ---------- The Wonder List page ---------- */
+function listPage(){
+  const pick = WONDER_LIST.find(it => it.what === "A skincare product") || WONDER_LIST[0];
+  const items = [pick, ...WONDER_LIST.filter(it => it !== pick)];
+  const art = it => it === pick ? plate({src:IMG.beautyPortrait, pos:"30% 35%"}, "", it.name, "lp-pick") : (it.plate && it.plate.src ? plate(it.plate, "", it.name, "lp") : `<span class="lp-none">Photo to come</span>`);
+  return `<header class="page-head"><div class="wrap"><div class="top"><span class="kicker">October \u00b7 Nine of the best</span><span class="kicker">Nothing here paid to be here</span></div>
+    <div class="intro"><h1 class="h-xxl">The Wonder <em>List</em></h1><p>Nine things worth discovering this month.</p></div></div></header>
+    <div class="wrap"><div class="lp-grid">${items.map((it, i) => `<article class="lp-it"><div class="lp-ph">${art(it)}</div><div class="lp-tg"><b>${String(i + 1).padStart(2, "0")}</b><i>${it.what.replace(/^An? /, "")}</i></div><h3>${it.name}</h3><p>${it.note}</p></article>`).join("")}</div></div>`;
+}
 /* ---------- router ---------- */
 const NAV = [["style","Style"],["beauty","Beauty"],["wellness","Wellness"],["culture","Culture"],["travel","Travel"],["work","Work"],["people","People"],["series","Series"],["shop","Shop"],["about","About"]];
 const ALIAS = {lifestyle:"style", skincare:"beauty", success:"work", places:"travel"}; /* old links keep working */
@@ -2595,6 +2807,7 @@ function render(){
   else if (route === "latest"){ html = latest(); title = "Latest | WONDER"; }
   else if (route === "people"){ html = peoplePage(); title = "People | WONDER"; }
   else if (route === "shop"){ html = shopPage(); title = "Shop | WONDER"; }
+  else if (route === "list"){ html = listPage(); title = "The Wonder List | WONDER"; }
   else if (route === "privacy"){ html = privacyPage(); title = "Privacy policy | WONDER"; }
   else if (route === "terms"){ html = termsPage(); title = "Terms | WONDER"; }
   else if (route === "series"){ html = seriesPage(); title = "Series | WONDER"; }
@@ -2777,6 +2990,85 @@ $("#modal-form").innerHTML = letterBlock("modal").replace('<div class="letter">'
 $("#foot-mark").innerHTML = `<span class="logo-mark word" role="img" aria-label="WONDER"></span>`;
 render();
 
+
+/* ================= phone, picture-first (A1) ================= */
+(() => {
+  const VW = {style:"runway", beauty:"glowPortrait", wellness:"pilates", culture:"henna", travel:"cph", work:"blazer"};
+  const count = k => STORIES.filter(s => inWorld(s, k)).length;
+  phoneHome = function(){
+    const H = byId[HOME.cover] || STORIES.find(s => s.hero);
+    const E = HOME.edit.map(id => byId[id]).filter(Boolean);
+    const B = byId["quieter-fashion"];
+    const pick = WONDER_LIST.find(it => it.what === "A skincare product") || WONDER_LIST[0];
+    const list = [pick, ...WONDER_LIST.filter(it => it !== pick)];
+    const art = it => it === pick ? plate({src:IMG.beautyPortrait, pos:"30% 35%"}, "", it.name, "vpick") : (it.plate && it.plate.src ? plate(it.plate, "", it.name, "vl") : "");
+    return `
+    <section class="v-cover"><span class="logo-mark word pmast" role="img" aria-label="WONDER"></span>
+      <a class="pph" href="${link(H)}">${plate(H.plate, "", H.alt, "vcover")}</a>
+      <div class="v-cap"><div><p class="ph-lbl">The cover story · ${kick(H)}</p><h1 class="v-ttl">${H.title}</h1></div><a class="v-go" href="${link(H)}" aria-label="Read the story">→</a></div></section>
+    <div class="v-ad banner"><b>Your brand here</b><span>Mobile banner · 320 × 100</span></div>
+    <section class="v-sec"><div class="v-head"><div><p class="ph-lbl">This week</p><h2 class="v-h2">The Wonder <em>Edit</em></h2></div><a class="v-more" href="#/latest">All</a></div>
+      <div class="v-row">${E.map(s => `<a class="v-card" href="${link(s)}"><span class="pph">${plate(s.plate, "", s.alt, "ve-" + s.id)}${pHeart(s.id)}</span><p class="ph-lbl">${kick(s)}</p><h3 class="v-ttl">${s.title}</h3></a>`).join("")}</div></section>
+    ${B ? `<section class="v-bleed"><a class="pph" href="${link(B)}">${plate(B.plate, "", B.alt, "vb")}</a><div class="v-capb"><p class="ph-lbl">${kick(B)}</p><h2 class="v-ttl" style="font-size:22px">${B.title}</h2></div></section>` : ""}
+    <section class="v-sec"><div class="v-head"><div><p class="ph-lbl">Explore</p><h2 class="v-h2">Six <em>worlds</em></h2></div></div>
+      <div class="v-row">${Object.entries(WORLDS).map(([k, w]) => `<a class="v-world" href="#/${k}"><span class="pph">${plate({src:IMG[VW[k]]}, "", w.name, "vw-" + k)}</span><b>${w.name}</b><i>${count(k)} stories</i></a>`).join("")}</div></section>
+    <div class="v-ad mpu"><b>Your brand here</b><span>In-feed · 300 × 250</span></div>
+    <section class="v-sec"><div class="v-head"><div><p class="ph-lbl">October · Nine of the best</p><h2 class="v-h2">The Wonder <em>List</em></h2></div></div>
+      <div class="v-row">${list.map((it, i) => { const n = String(i + 1).padStart(2, "0"), a = art(it), href = "#/list"; return `<a class="v-pick" href="${href}"><span class="pph">${a || `<span class="big">${n}</span>`}</span><span class="n">${n}</span><h3 class="v-ttl">${it.name}</h3></a>`; }).join("")}</div></section>
+    <a class="v-ad sponsor" href="#/collaborate"><span class="logo">Logo</span><b>Presented by your brand</b><span>Sponsored series · Shop the Edit, The Routine</span></a>
+    <section class="psec" style="border-top:0"><div class="ppad"><p class="ph-lbl">@wdr_magazine</p><h2 class="pig-ttl">Between issues, <em>on Instagram</em></h2></div>
+      <div class="phs pig">${INSTA.map(k => `<a class="pph" href="https://www.instagram.com/wdr_magazine/" target="_blank" rel="noopener" aria-label="WONDER on Instagram">${plate({src:IMG[k]}, "", "WONDER on Instagram", "vig-" + k)}</a>`).join("")}</div>
+      <div class="ppad"><a class="pfollow" href="https://www.instagram.com/wdr_magazine/" target="_blank" rel="noopener">Follow us on Instagram</a></div></section>
+    <section style="padding-bottom:8px"><div class="v-letter"><p class="ph-lbl">The Wonder Letter</p><h2 class="v-h2">Something worth wondering about, every Sunday.</h2>
+      <form class="pfield" data-letter="vhome" novalidate><label class="sr" for="pem-vhome">Email address</label><input id="pem-vhome" type="email" placeholder="Your email address" autocomplete="email" required><button class="pgo" type="submit" aria-label="Subscribe">→</button></form>
+      <p class="form-msg" aria-live="polite"></p></div></section>`;
+  };
+
+  // full-screen menu: six worlds only
+  const m = document.createElement("nav");
+  m.className = "vmenu"; m.id = "vmenu"; m.setAttribute("aria-label", "Worlds");
+  m.innerHTML = `<div class="bg">${Object.keys(WORLDS).map(k => `<span class="pph">${plate({src:IMG[VW[k]]}, "", "", "vm-" + k)}</span>`).join("")}</div>
+    <button type="button" class="picon x" data-vclose aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    ${Object.entries(WORLDS).map(([k, w], i) => `<a class="vw" href="#/${k}" data-i="${i}"><small>0${i + 1}</small>${w.name}</a>`).join("")}<a class="vw vseries" href="#/series"><small>07</small>Series</a>`;
+  document.body.appendChild(m);
+  const close = () => m.classList.remove("on");
+  const hot = i => { m.querySelectorAll("a.vw").forEach((a, k) => a.classList.toggle("hot", k === i)); m.querySelectorAll(".bg .pph").forEach((p, k) => p.classList.toggle("on", k === i)); };
+  window.addEventListener("click", e => {
+    if (!PHONE.matches) return;
+    if (e.target.closest('[data-psheet="menu"]')){ e.preventDefault(); e.stopPropagation(); const r = location.hash.replace(/^#\/?/, "").split("/")[0];
+      m.querySelectorAll("a.vw").forEach(a => a.getAttribute("href") === "#/" + r ? a.setAttribute("aria-current", "page") : a.removeAttribute("aria-current")); hot(-1); m.classList.add("on"); return; }
+    if (e.target.closest("[data-vclose]") || e.target.closest("a.vw")) close();
+  }, true);
+  m.addEventListener("pointerover", e => { const a = e.target.closest("a.vw"); if (a) hot(+a.dataset.i); });
+  m.addEventListener("touchstart", e => { const a = e.target.closest("a.vw"); if (a) hot(+a.dataset.i); }, {passive:true});
+  window.addEventListener("hashchange", close);
+  addEventListener("keydown", e => { if (e.key === "Escape") close(); });
+  if (PHONE.matches && !location.hash.replace(/^#\/?/, "")) render();
+})();
+
+/* About "We explore": hover/tap swaps the photo */
+(() => {
+  const on = a => { const box = a.closest(".ax"); if (!box) return; box.querySelectorAll("[data-ax]").forEach(x => x.classList.toggle("on", x === a)); box.querySelectorAll(".ax-stage .plate").forEach((p, k) => p.classList.toggle("on", k === +a.dataset.ax)); };
+  document.addEventListener("mouseover", e => { const a = e.target.closest("[data-ax]"); if (a) on(a); });
+  document.addEventListener("focusin", e => { const a = e.target.closest("[data-ax]"); if (a) on(a); });
+  document.addEventListener("click", e => { const a = e.target.closest("[data-ax]"); if (a && matchMedia("(hover:none)").matches && !a.classList.contains("on")){ e.preventDefault(); on(a); } }, true);
+})();
+
+/* ================= welcome sign-up pop-up ================= */
+(() => {
+  const pop = document.getElementById("wpop"), KEY = "wdr-popup";
+  document.getElementById("wimg").innerHTML = plate({src:IMG.drape, pos:"50% 30%"}, "", "", "wpop");
+  let seen = false; try { seen = !!localStorage.getItem(KEY); } catch(_){}
+  const ck = document.getElementById("cookie");
+  let ckWas = null, last = null;
+  const open = () => { last = document.activeElement; if (ck){ ckWas = ck.hidden; ck.hidden = true; } pop.classList.add("on"); pop.setAttribute("aria-hidden", "false"); setTimeout(() => { const i = document.getElementById("em-popup"); if (matchMedia("(min-width:761px)").matches) i.focus(); }, 450); };
+  const close = () => { pop.classList.remove("on"); pop.setAttribute("aria-hidden", "true"); try { localStorage.setItem(KEY, String(Date.now())); } catch(_){} if (ck && ckWas !== null) ck.hidden = ckWas; if (last && last.focus) last.focus(); };
+  pop.addEventListener("click", e => { if (e.target === pop || e.target.closest("[data-wclose]")) close(); });
+  addEventListener("keydown", e => { if (e.key === "Escape" && pop.classList.contains("on")) close(); });
+  pop.addEventListener("submit", () => { try { localStorage.setItem(KEY, "subscribed"); } catch(_){} setTimeout(close, 2600); });
+  if (!seen) setTimeout(open, 1500);
+  window.wonderPopup = open;
+})();
 </script>
 </body>
 </html>
